@@ -21,26 +21,47 @@ class EvaluationService{
         $student = $result->battery->student;
 
         //base value
-        $value = $result->v
+        $value = $result->value;
 
         //calcs if percentile
+        if($testType->calc_type === 'derived'){
+            $data = $this->buildMetricData($result);
+            $value = $this->metricService->calculate($testType->calc_key, $data);
+        }
 
-        //get ref
+        //search ref
+        $reference = $this->referenceService->getReferencyByType(
+            $testType->id,
+            $student->age,
+            $student->gender,
+            $this->resolveReferenceType($testType)
+        );
+
+        //if not found
+        if(!$reference){
+            return [
+                'value' => $value,
+                'classification' => null,
+                'error' => 'Reference not found'
+            ];
+        }
 
         //classify
+        $classification = $this->classify($value, $reference);
 
-        //return the avaliation [
-        //(final value(if percentile)
-        //the type of reference
-        //and the final classification]
+        return [
+            'value' => $value,
+            'classification' => $classification,
+            'reference_type' => $reference->type
+        ];
     }
 
     //prepare data for the calcs
     public function buildMetricData(TestResult $result){
         return [
             'weight' => $result->weight ?? null,
-            //height
-            //waist
+            'height' => $result->height ?? null,
+            'waist' => $result->waist ?? null
         ];
     }
 
@@ -52,7 +73,8 @@ class EvaluationService{
     public function classify(float $value, $reference){
         return match($reference->type){
             'percentile' => $this->classifyPercentile($value, $reference),
-            //absolute
+            'absolute' => $this->classifyAbsolute($value, $reference),
+            default => null
         };
     }
 
@@ -61,12 +83,68 @@ class EvaluationService{
         $classId = $result->battery->student->class_group_id;
 
         $results = TestResult::whereHas('battery.student',
-            function ($q) use ($classId)){
+            function ($q) use ($classId){
                 $q->where('class_group_id', $classId);
+            })
+            ->where('test_type_id', $testTypeId)
+            ->pluck('value')
+            ->sort()
+            ->values();
+
+            $count = $results->count();
+
+            if($count === 0){
+                return null;
             }
+
+            $position = $results->search($result->value);
+
+            if($position === false){
+                return null;
+            }
+
+            return ($position/$count)*100;
     }
 
-    public function classifyPercentile(float $value, $reference){
+    public function classifyPercentile(float $value, $reference): string{
+        if($value < $reference->p40){
+            return 'weak';
+        }
+
+        if($value < $reference->p60){
+            return 'average';
+        }
+
+        if($value < $reference->p80){
+            return 'good';
+        }
+
+        if($value < $reference->p98){
+            return 'very_good';
+        }
+
+        return 'excellent';
+    }
+
+        //same as above but without the percentile refs
+        public function classifyPercentileClass(float $value): string{
+        if($value < 40){
+            return 'weak';
+        }
+
+        if($value < 60){
+            return 'average';
+        }
+
+        if($value < 80){
+            return 'good';
+        }
+
+        if($value < 98){
+            return 'very_good';
+        }
+
+        return 'excellent';
     }
 
     public function classifyAbsolute(float $value, $reference){
