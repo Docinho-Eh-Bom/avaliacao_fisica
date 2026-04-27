@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function index(){
-        $students = student::with(['classGroup', 'user'])->get();
+        $students = Student::with(['classGroup', 'user'])->get();
 
         return view('students.index', compact('students'));
     }
@@ -24,7 +24,7 @@ class StudentController extends Controller
     public function show(Student $student){
         $student->load(['classGroup', 'batteries']);
 
-        return view('students.show', compact('students'));
+        return view('students.show', compact('student'));
     }
 
     public function store(Request $request){
@@ -32,7 +32,7 @@ class StudentController extends Controller
             'name' => 'required|string|max:150',
             'gender' => 'required|in:M,F',
             'birth_date' => 'required|date',
-            'class_group_id' => 'nullable|existc:class_groups,id'
+            'class_group_id' => 'nullable|exists:class_groups,id'
         ]);
 
         $data['user_id'] = Auth::id();
@@ -47,12 +47,12 @@ class StudentController extends Controller
             'name' => 'required|string|max:150',
             'gender' => 'required|in:M,F',
             'birth_date' => 'required|date',
-            'class_group_id' => 'nullable|existc:class_groups,id'
+            'class_group_id' => 'nullable|exists:class_groups,id'
             ]);
 
         $student->update($data);
 
-        return redirect()->route('students.index')->with('sucess', 'Student updated with success.');
+        return redirect()->route('students.index')->with('success', 'Student updated with success.');
     }
 
     public function destroy(Student $student){

@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class ClassGroupController extends Controller
 {
     public function index(){
-        $classes = ClassGroup::with('students')->get();
+        $classes = ClassGroup::with('students')
+                ->where('user_id', Auth::id())
+                ->get();
 
         return view('classes.index', compact('classes'));
     }
@@ -21,13 +23,13 @@ class ClassGroupController extends Controller
     public function show(ClassGroup $classGroup){
         $classGroup->load('students');
 
-        return view('classes.show', compact('classgroup'));
+        return view('classes.show', compact('classGroup'));
     }
 
     public function store(Request $request){
         $data = $request->validate([
             'name' => 'required|string',
-            'description' => "nullable|"
+            'description' => "nullable|string"
         ]);
 
         $data['user_id'] = Auth::id();

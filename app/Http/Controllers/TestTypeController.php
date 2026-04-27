@@ -18,7 +18,7 @@ class TestTypeController extends Controller
     public function index(){
         $types = $this->service->getAll();
 
-        return view('test-types.index', compact('types'));
+        return view('test-types.index', compact('test_types'));
     }
 
     public function create(){
@@ -35,7 +35,7 @@ class TestTypeController extends Controller
 
         //if calc type derived = they need a specific calc to get the result
         if($data['calc_type'] === 'derived' && empty($data['calc_key'])){
-            return back()->withErrors('Derived tests require calc_key');
+            return back()->withErrors(['Derived tests require calc_key']);
         }
 
         $this->service->create($data);
