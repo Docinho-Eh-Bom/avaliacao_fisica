@@ -21,6 +21,12 @@ class TestBatteryController extends Controller
         return view('batteries.create', compact('student'));
     }
 
+    public function show(Student $student, TestBattery $battery){
+        $battery->load(['results.testType']);
+
+        return view('batteries.show', compact('student', 'battery'));
+    }
+
     public function store(Request $request, Student $student){
         $data = $request->validate([
             'year' => 'required|integer|min:2003|max:'.date('Y')
@@ -31,5 +37,11 @@ class TestBatteryController extends Controller
         TestBattery::create($data);
 
         return redirect()->route('students.show', $student)->with('success', 'Battery created.');
+    }
+
+    public function destroy(Student $student, TestBattery $battery){
+        $battery->delete();
+
+        return back()->with('success', 'Battery deleted.');
     }
 }
