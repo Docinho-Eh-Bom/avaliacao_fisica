@@ -19,8 +19,12 @@ class Student extends Model
         'birth_date' => 'date'
     ];
 
-    public function tests(){
-        return $this->hasMany(TestResult::class);
+    public function batteries(){
+        return $this->hasMany(TestBattery::class);
+    }
+
+    public function results(){
+        return $this->hasManyThrough(TestResult::class,TestBattery::class);
     }
 
     //calcular idade automaticamente

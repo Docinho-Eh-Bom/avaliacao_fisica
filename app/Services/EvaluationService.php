@@ -56,12 +56,19 @@ class EvaluationService{
         ];
     }
 
+    private function getResultValue($battery, $key){
+        return $battery->results
+            ->firstWhere('testType.calc_key', $key)?->value;
+    }
+
     //prepare data for the calcs
     public function buildMetricData(TestResult $result){
+        $battery = $result->battery;
+
         return [
-            'weight' => $result->weight ?? null,
-            'height' => $result->height ?? null,
-            'waist' => $result->waist ?? null
+            'weight' => $this->getResultValue($battery, 'weight'),
+            'height' => $this->getResultValue($battery, 'height'),,
+            'waist' => $this->getResultValue($battery, 'waist'),
         ];
     }
 

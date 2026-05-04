@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function index(){
-        $students = Student::where('user_id', Auth::id())->with(['classGroup'])->get();
+        $students = Student::with(['classGroup', 'user'])->get();
 
         return view('students.index', compact('students'));
     }

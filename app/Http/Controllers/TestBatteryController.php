@@ -21,8 +21,10 @@ class TestBatteryController extends Controller
         return view('batteries.create', compact('student'));
     }
 
-    public function show(Student $student, TestBattery $battery){
-        $battery->load(['results.testType']);
+    public function show(Student $student, $batteryId){
+        $battery = $student->batteries()
+                    ->with('results.testType')
+                    ->findOrFail($batteryId);
 
         return view('batteries.show', compact('student', 'battery'));
     }

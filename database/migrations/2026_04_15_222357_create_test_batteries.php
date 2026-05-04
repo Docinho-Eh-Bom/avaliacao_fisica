@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('student_id')
                     ->constrained('students')
                     ->onDelete('cascade');
-            $table->float('weight');
-            $table->float('height');
             $table->year('year');
             $table->timestamps();
         });
