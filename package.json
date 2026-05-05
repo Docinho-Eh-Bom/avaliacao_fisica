@@ -6,7 +6,8 @@
         "build": "vite build",
         "dev": "vite",
         "serve": "php artisan serve",
-        "tinker": "php artisan tinker"
+        "tinker": "php artisan tinker",
+        "seed": "php artisan db:seed"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
