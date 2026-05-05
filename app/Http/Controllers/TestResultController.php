@@ -19,12 +19,16 @@ class TestResultController extends Controller
     }
 
     public function create(TestBattery $battery){
+        $this->authorize('update', $battery);
+
         $types = $this->testTypeService->getAllActive();
 
         return view('results.create', compact('battery', 'types'));
     }
 
     public function store(Request $request, TestBattery $battery){
+        $this->authorize('update', $battery);
+
         $data = $request->validate([
             'test_type_id' => 'required|exists:test_types,id',
             'value' => 'required|numeric'
@@ -46,6 +50,12 @@ class TestResultController extends Controller
     }
 
     public function destroy(TestBattery $battery, TestResult $result){
+        $this->authorize('delete', $battery);
+
+        if($result->battery_id !== $battery->id){
+            abort(404);
+        }
+
         $result->delete();
 
         return back()->with('success', 'Result deleted');

@@ -7,21 +7,26 @@ use App\Models\Student;
 use App\Models\ClassGroup;
 use Illuminate\Support\Facades\Auth;
 
+
 class StudentController extends Controller
 {
     public function index(){
-        $students = Student::with(['classGroup', 'user'])->get();
+        $students = Student::with(['classGroup'])
+                            ->where('user_id', Auth::id())
+                            ->get();
 
         return view('students.index', compact('students'));
     }
 
     public function create(){
-        $classes = ClassGroup::all();
+        $classes = ClassGroup::where('user_id', Auth::id())->get();
 
         return view('students.create', compact('classes'));
     }
 
     public function show(Student $student){
+        $this->authorize('view', $student);
+
         $student->load(['classGroup', 'batteries']);
 
         return view('students.show', compact('student'));
@@ -43,6 +48,8 @@ class StudentController extends Controller
     }
 
     public function update(Request $request, Student $student){
+        $this->authorize('update', $student);
+
         $data = $request->validate([
             'name' => 'required|string|max:150',
             'gender' => 'required|in:M,F',
@@ -56,6 +63,8 @@ class StudentController extends Controller
     }
 
     public function destroy(Student $student){
+        $this->authorize('delete', $student);
+
         $student->delete();
 
         return back()->with('sucess', 'Student deleted with success.');
