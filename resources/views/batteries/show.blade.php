@@ -1,19 +1,29 @@
-@extends
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="text-xl font-semibold">
+            Bateria {{ $battery->year }}
+        </h2>
+    </x-slot>
 
-@endsection('layouts.app')
+    <div class="p-6">
 
-@section('content')
-<h1>Bateria de testes {{ $battery->year }}</h1>
+        <a href="{{ route('batteries.results.create', $battery) }}"
+           class="text-blue-500">
+            Adicionar resultado
+        </a>
 
-<a href="{{ route('batteries.results.create', $battery) }}">Adicionar resultado</a>
+        <ul class="mt-4 space-y-2">
+            @forelse ($battery->results as $result)
+                <li>
+                    {{ $result->testType->name }} -
+                    {{ $result->value }}
+                </li>
+            @empty
+                <li class="text-gray-500">
+                    Nenhum resultado ainda.
+                </li>
+            @endforelse
+        </ul>
 
-<ul>
-    @foreach ($battery->results as $result)
-        <li>
-            {{ $result->testType->name }}
-            {{ $result->value }}
-        </li>
-    @endforeach
-</ul>
-
-@endsection
+    </div>
+</x-app-layout>
