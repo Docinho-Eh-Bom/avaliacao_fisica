@@ -80,6 +80,18 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('students.index')">
+                    {{ __('Alunos') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('classes.index')">
+                    {{ __('Turmas') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('test-types.index')">
+                    {{ __('Testes') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

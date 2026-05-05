@@ -14,7 +14,7 @@
             <ul class="mt-4 space-y-2">
                 @forelse ($students as $student)
                     <li>
-                        <a href="{{ route('students.show', $student) }}" class="text-blue-600">
+                        <a href="{{ route('students.show', $student) }}" class="text-white">
                             {{ $student->name }}
                         </a>
                     </li>

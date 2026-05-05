@@ -8,7 +8,7 @@
     <div class="p-6">
 
         <a href="{{ route('batteries.results.create', $battery) }}"
-           class="text-blue-500">
+            class="text-blue-500">
             Adicionar resultado
         </a>
 

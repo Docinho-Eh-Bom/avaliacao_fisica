@@ -10,12 +10,12 @@
                 @csrf
 
                 <div>
-                    <label>Nome:</label>
+                    <label class="text-white">Nome:</label>
                     <input type="text" name="name" required class="border">
                 </div>
 
                 <div class="mt-2">
-                    <label>Sexo:</label>
+                    <label class="text-white">Sexo:</label>
                     <select name="gender" required class="border">
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
@@ -23,12 +23,12 @@
                 </div>
 
                 <div class="mt-2">
-                    <label>Data de nascimento:</label>
+                    <label class="text-white">Data de nascimento:</label>
                     <input type="date" name="birth_date" required class="border">
                 </div>
 
                 <div class="mt-2">
-                    <label>Turma:</label>
+                    <label class="text-white">Turma:</label>
                     <select name="class_group_id" class="border">
                         <option value="">Sem turma</option>
                         @foreach ($classes as $class)
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2">
+                    <button type="submit" class="bg-blue-500 text-blue-500 px-4 py-2">
                         Salvar
                     </button>
                 </div>

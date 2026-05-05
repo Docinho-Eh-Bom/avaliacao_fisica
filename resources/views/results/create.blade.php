@@ -11,7 +11,7 @@
             @csrf
 
             <div>
-                <label>Teste:</label>
+                <label class="text-white">Teste:</label>
                 <select name="test_type_id" class="border">
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}">
@@ -22,11 +22,11 @@
             </div>
 
             <div class="mt-2">
-                <label>Valor:</label>
+                <label class="text-white">Valor:</label>
                 <input type="number" step="0.01" name="value" class="border">
             </div>
 
-            <button class="mt-4 bg-blue-500 text-white px-4 py-2">
+            <button class="mt-4 bg-blue-500 text-blue-500 px-4 py-2">
                 Salvar
             </button>
         </form>

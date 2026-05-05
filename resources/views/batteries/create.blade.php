@@ -7,10 +7,10 @@
         <form action="{{ route('students.batteries.store', $student) }}" method="POST">
             @csrf
 
-            <label>Ano:</label>
+            <label class="text-white">Ano:</label>
             <input type="number" name="year" class="border">
 
-            <button class="bg-blue-500 text-white px-4 py-2 mt-2">
+            <button class="bg-blue-500 text-blue-500 px-4 py-2 mt-2">
                 Salvar
             </button>
         </form>
