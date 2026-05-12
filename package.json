@@ -7,6 +7,7 @@
         "dev": "vite",
         "serve": "php artisan serve",
         "tinker": "php artisan tinker",
+        "migrate": "php artisan migrate:fresh",
         "seed": "php artisan db:seed"
     },
     "devDependencies": {
