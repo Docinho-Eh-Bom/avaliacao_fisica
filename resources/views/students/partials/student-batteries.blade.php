@@ -13,7 +13,7 @@
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
             <thead class="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                    <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Data</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Bateria Criada em</th>
                     <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Testes</th>
                     <th class="px-6 py-3 text-right text-sm font-medium dark:text-gray-200">Ações</th>
                 </tr>
