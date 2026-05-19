@@ -67,7 +67,7 @@ class EvaluationService{
 
         return [
             'weight' => $this->getResultValue($battery, 'weight'),
-            'height' => $this->getResultValue($battery, 'height'),,
+            'height' => $this->getResultValue($battery, 'height'),
             'waist' => $this->getResultValue($battery, 'waist'),
         ];
     }
