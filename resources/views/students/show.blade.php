@@ -1,30 +1,28 @@
 <x-app-layout>
+
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight"> {{ $student->name }}</h2>
+        <div class="flex items-center justify-between">
+
+            <x-page-title>{{ $student->name }}</x-page-title>
+
+            <div class="flex gap-2">
+                <a href="{{ route('students.edit', $student) }}">
+                    <x-primary-button>Editar</x-primary-button>
+                </a>
+
+                <a href="{{ route('students.index') }}">
+                    <x-secondary-button>Voltar</x-secondary-button>
+                </a>
+
+            </div>
+        </div>
     </x-slot>
 
-    <div class="p-6 space-y-4">
-        <div>
-            <p><strong>Idade:</strong>{{ $student->age }}</p>
-            <p><strong>Sexo:</strong>{{ $student->gender }}</p>
-        </div>
-
-        <div>
-            <a href="{{ route('students.batteries.create', $student) }}" class="text-blue-500"> Adicionar bateria de testes</a>
-        </div>
-
-        <div>
-            <h3 class="font-semibold">Baterias</h3>
-
-            <ul class="mt-2 space-y-2">
-                @forelse ($student->batteries as $battery)
-                    <li>
-                        <a href="{{ route('batteries.show', $battery) }}" class="text-blue-600"> {{ $battery->year }}</a>
-                    </li>
-                @empty
-                    <li class="text-gray-500">Nenhuma bateria cadastrada</li>
-                @endforelse
-            </ul>
+    <div class="py-6">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            @include('students.partials.student-info')
+            @include('students.partials.student-batteries')
         </div>
     </div>
+
 </x-app-layout>

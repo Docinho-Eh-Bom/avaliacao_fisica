@@ -7,6 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <link rel="icon" href="{{ asset('favicon/light.svg') }}" media="(prefers-color-scheme: light)" type="image/svg+xml">
+        <link rel="icon" href="{{ asset('favicon/dark.svg') }}" media="(prefers-color-scheme: dark)" type="image/svg+xml">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -32,5 +35,17 @@
                 {{ $slot }}
             </main>
         </div>
+
+        @if(session('success'))
+            <x-toast type="success" :message="session('success')"/>
+        @endif
+
+        @if(session('error'))
+            <x-toast type="error" :message="session('error')"/>
+        @endif
+
+        @if(session('warning'))
+            <x-toast type="warning" :message="session('warning')"/>
+        @endif
     </body>
 </html>

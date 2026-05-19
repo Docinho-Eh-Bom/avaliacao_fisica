@@ -1,35 +1,60 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold">
-            Adicionar Resultado
-        </h2>
+        <div class="flex items-center justify-between">
+            <x-page-title>Inserir Resultados</x-page-title>
+
+            <a href="{{ route('batteries.show', $battery) }}">
+                <x-secondary-button>Voltar</x-secondary-button>
+            </a>
+        </div>
     </x-slot>
 
-    <div class="p-6">
+    <div class="py-6">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+            <x-section-card>
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold dark:text-gray-100">{{ $battery->student->name }}</h3>
 
-        <form action="{{ route('batteries.results.store', $battery) }}" method="POST">
-            @csrf
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Bateria {{ $battery->year }}</p>
+                </div>
 
-            <div>
-                <label class="text-white">Teste:</label>
-                <select name="test_type_id" class="border">
-                    @foreach ($types as $type)
-                        <option value="{{ $type->id }}">
-                            {{ $type->name }} ({{ $type->unit }})
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+                <form method="POST" action="{{ route('batteries.results.store', $battery) }}" class="space-y-6">
+                    @csrf
 
-            <div class="mt-2">
-                <label class="text-white">Valor:</label>
-                <input type="number" step="0.01" name="value" class="border">
-            </div>
+                    <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Teste</th>
+                                    <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Unidade</th>
+                                    <th class="px-6 py-3 text-left text-sm font-medium dark:text-gray-200">Resultado</th>
+                                </tr>
+                            </thead>
 
-            <button class="mt-4 bg-blue-500 text-blue-500 px-4 py-2">
-                Salvar
-            </button>
-        </form>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                @foreach($types as $type)
 
+                                    <tr>
+                                        <td class="px-6 py-4 dark:text-gray-100">{{ $type->name }}</td>
+
+                                        <td class="px-6 py-4 dark:text-gray-300">{{ $type->unit ?? '-' }}</td>
+
+                                        <td class="px-6 py-4">
+                                            <x-text-input type="number" step="0.01" name="results[{{ $type->id }}]" class="w-full"/>
+                                        </td>
+                                    </tr>
+
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <x-primary-button>Salvar resultados</x-primary-button>
+                    </div>
+                </form>
+            </x-section-card>
+        </div>
     </div>
 </x-app-layout>
