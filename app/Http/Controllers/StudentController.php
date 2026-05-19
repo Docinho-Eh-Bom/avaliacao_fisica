@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\ClassGroup;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -27,7 +27,7 @@ class StudentController extends Controller
     public function show(Student $student){
         $this->authorize('view', $student);
 
-        $student->load(['classGroup', 'batteries']);
+        $student->load(['classGroup', 'batteries', 'batteries.results']);
 
         return view('students.show', compact('student'));
     }
@@ -44,7 +44,15 @@ class StudentController extends Controller
 
         Student::create($data);
 
-        return redirect()->route('students.index')->with('success', 'Student added with success.');
+        return redirect()->route('students.index')->with('success', 'Aluno adicionado com sucesso!');
+    }
+
+    public function edit(Student $student){
+        $this->authorize('update', $student);
+
+        $classes = ClassGroup::where('user_id', Auth::id())->get();
+
+        return view('students.edit', compact('student', 'classes'));
     }
 
     public function update(Request $request, Student $student){
@@ -54,12 +62,15 @@ class StudentController extends Controller
             'name' => 'required|string|max:150',
             'gender' => 'required|in:M,F',
             'birth_date' => 'required|date',
-            'class_group_id' => 'nullable|exists:class_groups,id'
+            'class_group_id' => [
+                'nullable',
+                Rule::exists('class_groups', 'id')
+                    ->where('user_id', Auth::id())]
             ]);
 
         $student->update($data);
 
-        return redirect()->route('students.index')->with('success', 'Student updated with success.');
+        return redirect()->route('students.index')->with('success', 'Dados do aluno atualizados com sucesso!');
     }
 
     public function destroy(Student $student){
@@ -67,6 +78,6 @@ class StudentController extends Controller
 
         $student->delete();
 
-        return back()->with('sucess', 'Student deleted with success.');
+        return back()->with('success', 'Aluno deletado com sucesso!');
     }
 }

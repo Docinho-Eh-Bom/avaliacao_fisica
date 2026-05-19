@@ -30,34 +30,39 @@ class TestResultController extends Controller
         $this->authorize('update', $battery);
 
         $data = $request->validate([
-            'test_type_id' => 'required|exists:test_types,id',
-            'value' => 'required|numeric'
+            'results' => 'required|array',
+            'results.*' => 'nullable|numeric'
         ]);
 
-        $data['battery_id'] = $battery->id;
+        foreach($data['results'] as $testTypeId => $value){
 
-        $result = TestResult::create($data);
+            if($value === null || $value === ''){
+                continue;
+            }
 
-        $evaluation = $this->evaluationService->evaluate($result);
+            $result = TestResult::updateOrCreate(
+                [
+                    'battery_id' => $battery->id,
+                    'test_type_id' => $testTypeId
+                ],
+                [
+                    'value' => $value
+                ]
+            );
+
+            $this->evaluationService->evaluate($result);
+        }
 
         return redirect()
-                ->route('batteries.show', [
-                    'student' => $battery->student_id,
-                    'battery' => $battery->id
-                ])
-                ->with('success', 'Result added')
-                ->with('evaluation');
+            ->route('batteries.show', $battery)
+            ->with('success', 'Resultados salvos.');
     }
 
-    public function destroy(TestBattery $battery, TestResult $result){
-        $this->authorize('delete', $battery);
-
-        if($result->battery_id !== $battery->id){
-            abort(404);
-        }
+    public function destroy(TestResult $result){
+        $this->authorize('delete', $result);
 
         $result->delete();
 
-        return back()->with('success', 'Result deleted');
+        return back()->with('success', 'Resultado removido');
     }
 }

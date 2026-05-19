@@ -18,11 +18,11 @@ class TestTypeController extends Controller
     public function index(){
         $types = $this->service->getAll();
 
-        return view('test-types.index', compact('test_types'));
+        return view('test-types.index', compact('types'));
     }
 
     public function create(){
-        return view('test_types.create');
+        return view('test-types.create');
     }
 
     public function store(Request $request){

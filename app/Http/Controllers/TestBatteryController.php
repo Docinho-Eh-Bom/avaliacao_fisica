@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Services\EvaluationService;
 use App\Models\TestBattery;
 
 
-class TestBatteryController extends Controller
-{
+class TestBatteryController extends Controller{
+
+    protected $evaluationService;
+
+    public function __construct(EvaluationService $evaluationService){
+        $this->evaluationService = $evaluationService;
+    }
+
     public function index(Student $student){
         $this->authorize('view', $student);
 
@@ -25,16 +32,25 @@ class TestBatteryController extends Controller
         return view('batteries.create', compact('student'));
     }
 
-    public function show(Student $student, $batteryId){
-        $this->authorize('view', $student);
-
-        $battery = $student->batteries()
-                    ->with('results.testType')
-                    ->findOrFail($batteryId);
-
+    public function show(TestBattery $battery){
         $this->authorize('view', $battery);
 
-        return view('batteries.show', compact('student', 'battery'));
+        $battery->load([
+            'student',
+            'results.testType'
+        ]);
+
+        $evaluations = [];
+
+        foreach($battery->results as $result){
+            $evaluations[$result->id] =
+                $this->evaluationService->evaluate($result);
+        }
+
+        return view('batteries.show', compact(
+            'battery',
+            'evaluations'
+        ));
     }
 
     public function store(Request $request, Student $student){
@@ -48,18 +64,17 @@ class TestBatteryController extends Controller
 
         TestBattery::create($data);
 
-        return redirect()->route('students.show', $student)->with('success', 'Battery created.');
+        return redirect()->route('students.show', $student)->with('success', 'Bateria de testes criada.');
     }
 
-    public function destroy(Student $student, TestBattery $battery){
+    public function destroy(TestBattery $battery){
         $this->authorize('delete', $battery);
-
-        if($battery->student_id !== $student->id){
-            abort(404);
-        }
 
         $battery->delete();
 
-        return back()->with('success', 'Battery deleted.');
+        return back()->with(
+            'success',
+            'Bateria de testes deletada.'
+        );
     }
 }
