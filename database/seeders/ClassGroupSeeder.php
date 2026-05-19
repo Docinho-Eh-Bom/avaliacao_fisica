@@ -17,7 +17,7 @@ class ClassGroupSeeder extends Seeder
     {
         ClassGroup::insert([
             ['name' => 'Turma A1', 'description' => 'Manhã', 'user_id' => 1],
-            ['name' => 'Turma A1', 'description' => 'Tarde', 'user_id' => 1],
+            ['name' => 'Turma A2', 'description' => 'Tarde', 'user_id' => 1],
             ['name' => 'Turma B1', 'description' => 'Manhã', 'user_id' => 2],
             ['name' => 'Turma B2', 'description' => 'Tarde', 'user_id' => 2],
         ]);
