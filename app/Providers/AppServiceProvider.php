@@ -9,6 +9,7 @@ use App\Models\TestResult;
 use App\Policies\StudentPolicy;
 use App\Policies\TestBatteryPolicy;
 use App\Policies\TestResultPolicy;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
