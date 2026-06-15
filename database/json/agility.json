@@ -1,0 +1,1082 @@
+[
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 6.20
+    },
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 6.21,
+        "max_value": 7.10
+    },
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 7.11,
+        "max_value": 7.60
+    },
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.61,
+        "max_value": 8.07
+    },
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 8.08,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 6.67
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 6.68,
+        "max_value": 7.67
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 7.66,
+        "max_value": 8.26
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 8.27,
+        "max_value": 8.85
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 8.86,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 6.01
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 6.02,
+        "max_value": 6.90
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.91,
+        "max_value": 7.39
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.40,
+        "max_value": 7.85
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.86,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 6.32
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 6.33,
+        "max_value": 7.35
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 7.36,
+        "max_value": 7.93
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.94,
+        "max_value": 8.47
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 8.48,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.85
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.86,
+        "max_value": 6.71
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.72,
+        "max_value": 7.20
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.21,
+        "max_value": 7.65
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.66,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 6.09
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 6.10,
+        "max_value": 7.09
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 7.10,
+        "max_value": 7.64
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.65,
+        "max_value": 8.15
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 8.16,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.69
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.70,
+        "max_value": 6.53
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.54,
+        "max_value": 7.00
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.01,
+        "max_value": 7.45
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.46,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.97
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.98,
+        "max_value": 6.87
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.88,
+        "max_value": 7.37
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.38,
+        "max_value": 7.85
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.86,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.54
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.55,
+        "max_value": 6.35
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.36,
+        "max_value": 6.81
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.82,
+        "max_value": 7.25
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.26,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.81
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.82,
+        "max_value": 6.66
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.67,
+        "max_value": 7.14
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 7.15,
+        "max_value": 7.60
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.61,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.37
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.38,
+        "max_value": 6.15
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.16,
+        "max_value": 6.60
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.61,
+        "max_value": 7.02
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.03,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.67
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.68,
+        "max_value": 6.49
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.50,
+        "max_value": 6.95
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.96,
+        "max_value": 7.39
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.40,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.22
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.23,
+        "max_value": 5.98
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.99,
+        "max_value": 6.41
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.42,
+        "max_value": 6.82
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.83,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.61
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.62,
+        "max_value": 6.37
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.38,
+        "max_value": 6.82
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.83,
+        "max_value": 7.27
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.28,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.08
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.09,
+        "max_value": 5.80
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.81,
+        "max_value": 6.22
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.23,
+        "max_value": 6.62
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.63,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.47
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.48,
+        "max_value": 6.25
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.26,
+        "max_value": 6.70
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.71,
+        "max_value": 7.15
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.16,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 4.93
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 4.94,
+        "max_value": 5.62
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.63,
+        "max_value": 6.03
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.04,
+        "max_value": 6.42
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.43,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.32
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.33,
+        "max_value": 6.11
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.12,
+        "max_value": 6.58
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.59,
+        "max_value": 7.05
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 7.06,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 4.76
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 4.77,
+        "max_value": 5.42
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.43,
+        "max_value": 5.81
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 5.82,
+        "max_value": 6.19
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.20,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.21
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.22,
+        "max_value": 6.00
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 6.01,
+        "max_value": 6.48
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.49,
+        "max_value": 6.97
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.98,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 4.62
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 4.63,
+        "max_value": 5.24
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.25,
+        "max_value": 5.62
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 5.63,
+        "max_value": 5.99
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.00,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.12
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.13,
+        "max_value": 5.92
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.93,
+        "max_value": 6.42
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.43,
+        "max_value": 6.92
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.93,
+        "max_value": 50.0
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 4.47
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 4.48,
+        "max_value": 5.07
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.08,
+        "max_value": 5.43
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 5.44,
+        "max_value": 5.79
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 5.80,
+        "max_value": 50.0
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "excellent",
+        "min_value": 1.00,
+        "max_value": 5.02
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "very_good",
+        "min_value": 5.03,
+        "max_value": 5.84
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "good",
+        "min_value": 5.85,
+        "max_value": 6.36
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "average",
+        "min_value": 6.37,
+        "max_value": 6.88
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "absolute",
+        "label": "weak",
+        "min_value": 6.89,
+        "max_value": 50.0
+    }
+]

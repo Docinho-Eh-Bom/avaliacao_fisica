@@ -1,0 +1,434 @@
+[
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 17.69
+    },
+    {
+        "gender": "M",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 17.70,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 17.89
+    },
+    {
+        "gender": "M",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 17.90,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 19.29
+    },
+    {
+        "gender": "M",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 19.30,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 19.39
+    },
+    {
+        "gender": "M",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 19.40,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 20.79
+    },
+    {
+        "gender": "M",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 20.80,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.19
+    },
+    {
+        "gender": "M",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.20,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.29
+    },
+    {
+        "gender": "M",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.30,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.09
+    },
+    {
+        "gender": "M",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.29
+    },
+    {
+        "gender": "M",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.30,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 23.09
+    },
+    {
+        "gender": "M",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 23.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 24.09
+    },
+    {
+        "gender": "M",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 24.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 25.49
+    },
+    {
+        "gender": "M",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 25.50,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 17.09
+    },
+    {
+        "gender": "F",
+        "age_min": 6,
+        "age_max": 6,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 17.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 17.19
+    },
+    {
+        "gender": "F",
+        "age_min": 7,
+        "age_max": 7,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 17.20,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 18.29
+    },
+    {
+        "gender": "F",
+        "age_min": 8,
+        "age_max": 8,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 18.30,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 19.19
+    },
+    {
+        "gender": "F",
+        "age_min": 9,
+        "age_max": 9,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 19.20,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 20.99
+    },
+    {
+        "gender": "F",
+        "age_min": 10,
+        "age_max": 10,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 21.00,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.39
+    },
+    {
+        "gender": "F",
+        "age_min": 11,
+        "age_max": 11,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.40,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.69
+    },
+    {
+        "gender": "F",
+        "age_min": 12,
+        "age_max": 12,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.70,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.09
+    },
+    {
+        "gender": "F",
+        "age_min": 13,
+        "age_max": 13,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.09
+    },
+    {
+        "gender": "F",
+        "age_min": 14,
+        "age_max": 14,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 22.49
+    },
+    {
+        "gender": "F",
+        "age_min": 15,
+        "age_max": 15,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 22.50,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 24.09
+    },
+    {
+        "gender": "F",
+        "age_min": 16,
+        "age_max": 16,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 24.10,
+        "max_value": 100.0
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "derived",
+        "label": "healthy",
+        "min_value": 0,
+        "max_value": 24.09
+    },
+    {
+        "gender": "F",
+        "age_min": 17,
+        "age_max": 17,
+        "type": "derived",
+        "label": "risk",
+        "min_value": 24.10,
+        "max_value": 100.0
+    }
+]

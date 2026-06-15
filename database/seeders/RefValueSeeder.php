@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ReferenceValue;
-use App\Models\TestType;
+use app\Models\ReferenceValue;
+use app\Models\TestType;
 
 class RefValueSeeder extends Seeder
 {
@@ -25,49 +25,49 @@ class RefValueSeeder extends Seeder
 
     private function seedFlexibility(): void{
         $testType = TestType::where('name', 'Flexibilidade')->first();
-        $json = storage_path('app/reference-values/flexibility.json');
+        $json = storage_path('database/json/flexibility.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedAbdominal(): void{
         $testType = TestType::where('name', 'Força Abdominal')->first();
-        $json = storage_path('app/reference-values/abdominal.json');
+        $json = storage_path('database/json/abdominal.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedCardio(): void{
         $testType = TestType::where('name', 'Aptidão Cardiorrespiratória')->first();
-        $json = storage_path('app/reference-values/cardio.json');
+        $json = storage_path('database/json/cardio.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedUpperBody(): void{
         $testType = TestType::where('name', 'Força Membros Superiores')->first();
-        $json = storage_path('app/reference-values/upper.json');
+        $json = storage_path('database/json/upper.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedLowerBody(): void{
         $testType = TestType::where('name', 'Força Membros Inferiores')->first();
-        $json = storage_path('app/reference-values/lower.json');
+        $json = storage_path('database/json/lower.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedAgility(): void{
         $testType = TestType::where('name', 'Agilidade')->first();
-        $json = storage_path('app/reference-values/agility.json');
+        $json = storage_path('database/json/agility.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedSpeed(): void{
         $testType = TestType::where('name', 'Velocidade')->first();
-        $json = storage_path('app/reference-values/speed.json');
+        $json = storage_path('database/json/speed.json');
         $this->importJson($json, $testType->id);
     }
 
     private function seedBMI(): void{
         $testType = TestType::where('name', 'IMC')->first();
-        $json = storage_path('app/reference-values/bmi.json');
+        $json = storage_path('database/json/bmi.json');
         $this->importJson($json, $testType->id);
     }
 
