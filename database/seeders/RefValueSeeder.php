@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use app\Models\ReferenceValue;
-use app\Models\TestType;
+use App\Models\ReferenceValue;
+use App\Models\TestType;
 
 class RefValueSeeder extends Seeder
 {
