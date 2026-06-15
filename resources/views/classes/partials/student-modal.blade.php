@@ -25,9 +25,9 @@
             @endforelse
 
         </div>
+        <div class="m-2 flex justify-end gap-3">
+            <x-secondary-button x-on:click="$dispatch('close-modal', 'add-students')" type="button">Cancelar</x-secondary-button>
+            <x-primary-button>Adicionar</x-primary-button>
+        </div>
     </form>
-    <div class="m-2 flex justify-end gap-3">
-        <x-secondary-button x-on:click="$dispatch('close-modal', 'add-students')" type="button">Cancelar</x-secondary-button>
-        <x-primary-button>Adicionar</x-primary-button>
-    </div>
 </x-modal>

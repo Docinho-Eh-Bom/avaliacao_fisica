@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Models\TestResult;
 use App\Models\TestType;
+use App\Models\TestBattery;
 use App\Services\ReferenceValueService;
 use App\Services\MetricService;
 
@@ -16,44 +17,53 @@ class EvaluationService{
     }
 
     //avaliate the results (basically the final return where everything is calcd and classified)
-    public function evaluate(TestResult $result){
+    public function evaluateDirect(TestType $testType, $student, float $value){
+        $reference = $this->referenceService
+        ->findClassification(
+            $testType->id,
+            $student->age,
+            $student->gender,
+            $value
+            );
+
+
+        //no ref found
+        if(!$reference){
+            return [
+                'value' => $value,
+                'classification' => null,
+                'error' => 'Referência não encontrada.'
+            ];
+        }
+
+        return [
+            'value' => $value,
+            'classification' => $reference->label,
+        ];
+    }
+
+    public function evaluateDerived(TestResult $result){
         $testType = $result->testType;
         $student = $result->battery->student;
 
         //base value
         $value = $result->value;
 
-        //calcs if percentile
+        //calcs if derived
         if($testType->calc_type === 'derived'){
             $data = $this->buildMetricData($result);
             $value = $this->metricService->calculate($testType->calc_key, $data);
         }
 
-        //search ref
-        $reference = $this->referenceService->getReferencyByType(
-            $testType->id,
-            $student->age,
-            $student->gender,
-            $this->resolveReferenceType($testType)
-        );
-
-        //if not found
-        if(!$reference){
-            return [
-                'value' => $value,
-                'classification' => null,
-                'error' => 'Reference not found'
-            ];
+        if($testType->calc_key === 'bmi'){
+            return $this->evaluateBMI($value, $student);
         }
 
-        //classify
-        $classification = $this->classify($value, $reference);
+        if($testType->calc_key === 'wtr'){
+            return $this->evaluateWTR($value);
+        }
 
-        return [
-            'value' => $value,
-            'classification' => $classification,
-            'reference_type' => $reference->type
-        ];
+        return $this->evaluateDirect($testType, $student, $value);
     }
 
     private function getResultValue($battery, $key){
@@ -72,65 +82,104 @@ class EvaluationService{
         ];
     }
 
-    //just a func to tell what type of ref it is
-    public function resolveReferenceType($testType){
-        return $testType->calc_type === 'derived' ? 'absolute' : 'percentile';
+    public function evaluateBMI(float $value, $student){
+        $testType = TestType::where('calc_key', 'bmi')->first();
+
+        $reference = $this->referenceService
+            ->findClassificationDerived(
+                $testType->id,
+                $student->age,
+                $student->gender,
+                $value
+            );
+
+        return [
+            'value' => $value,
+            'classification' => $reference->label
+        ];
     }
 
-    public function classify(float $value, $reference){
-        return match($reference->type){
-            'percentile' => $this->classifyPercentile($value, $reference),
-            'absolute' => $this->classifyAbsolute($value, $reference),
-            default => null
-        };
+    public function evaluateWTR(float $value){
+        return [
+            'value' => $value,
+            'classification' => $value < 0.5 ? 'healthy' : 'risk'
+        ];
     }
 
-    public function calcClassPercentile($result){
-        $testTypeId = $result->test_type_id;
-        $classId = $result->battery->student->class_group_id;
+    public function getDerivedResult(TestBattery $battery){
+        $data = [
+            'weight' => $this->getResultValue($battery, 'weight'),
+            'height' => $this->getResultValue($battery, 'height'),
+            'waist' => $this->getResultValue($battery, 'waist')
+        ];
 
-        $results = TestResult::whereHas('battery.student',
-            function ($q) use ($classId){
-                $q->where('class_group_id', $classId);
+        $bmi = $this->metricService->calculate('bmi', $data);
+        $wtr = $this->metricService->calculate('wtr', $data);
+
+        $bmiEvaluation = $this->evaluateBMI($bmi, $battery->student);
+        $wtrEvaluation = $this->evaluateWTR($wtr);
+
+        return [
+            (object)[
+                'derived' => true,
+                'name' => 'IMC',
+                'final_value' => $bmi,
+                'unit' => 'kg/m²',
+                'classification' => $bmiEvaluation['classification'],
+                'classification_label' => match($bmiEvaluation['classification']){
+                    'healthy' => 'Saudável',
+                    'risk' => 'Risco à Saúde',
+                    default => 'Não classificado'
+                }
+            ],
+
+            (object)[
+                'derived' => true,
+                'name' => 'Razão Cintura Estatura',
+                'final_value' => $wtr,
+                'unit' => 'razão cintura estatura',
+                'classification' => $wtrEvaluation['classification'],
+                'classification_label' => match($wtrEvaluation['classification']){
+                    'healthy' => 'Saudável',
+                    'risk' => 'Risco à Saúde',
+                    default => 'Não classificado'
+                }
+            ]
+        ];
+    }
+
+    public function calcClassPercentile(TestResult $result): ?float{
+        $testType = $result->testType;
+
+        $results = TestResult::whereHas('battery.student', function ($q) use ($result){
+                $q->where(
+                    'class_group_id',
+                    $result->battery->student->class_group_id
+                );
             })
-            ->where('test_type_id', $testTypeId)
-            ->pluck('value')
-            ->sort()
+            ->where('test_type_id', $result->test_type_id)
+            ->get()
+            ->map(fn ($r) => $r->final_value ?? $r->value)
+            ->filter()
             ->values();
 
-            $count = $results->count();
+        $count = $results->count();
 
-            if($count === 0){
-                return null;
-            }
-
-            $position = $results->search($result->value);
-
-            if($position === false){
-                return null;
-            }
-
-            return ($position/$count)*100;
-    }
-
-    public function classifyPercentile(float $value, $reference): string{
-        if($value < $reference->p40){
-            return 'weak';
+        if($count === 0){
+            return null;
         }
 
-        if($value < $reference->p60){
-            return 'average';
+        if($testType->higher){
+            $betterThan = $results->filter(
+                fn ($v) => $v <= $result->final_value
+            )->count();
+        }else{
+            $betterThan = $results->filter(
+                fn ($v) => $v >= $result->final_value
+            )->count();
         }
 
-        if($value < $reference->p80){
-            return 'good';
-        }
-
-        if($value < $reference->p98){
-            return 'very_good';
-        }
-
-        return 'excellent';
+        return round(($betterThan / $count) * 100, 2);
     }
 
         //same as above but without the percentile refs
@@ -152,16 +201,5 @@ class EvaluationService{
         }
 
         return 'excellent';
-    }
-
-    public function classifyAbsolute(float $value, $reference){
-        if($reference->min_value !== null &&
-            $reference->max_value !== null &&
-            $value >= $reference->min_value &&
-            $value <= $reference->max_value){
-                return $reference->label;
-            }
-
-        return null;
     }
 }

@@ -1,48 +1,62 @@
 <x-app-layout>
     <x-slot name="header">
-        <x-page-title>
-            {{ $type->name }}
-        </x-page-title>
+        <div class="flex items-center justify-between">
+            <x-page-title>{{ $type->name }}</x-page-title>
+
+            <a href="{{ route('test-types.index') }}">
+                <x-secondary-button>Voltar</x-secondary-button>
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-6">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                <x-section-card>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Unidade</p>
 
-            <div class="bg-white dark:bg-gray-800 shadow rounded p-6">
+                    <h3 class="text-2xl font-bold dark:text-gray-100 mt-2">{{ $type->unit ?? '-' }}</h3>
+                </x-section-card>
 
-                <p>
-                    <strong>Unidade:</strong>
-                    {{ $type->unit }}
-                </p>
+                <x-section-card>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Status</p>
 
-                <p class="mt-2">
-                    <strong>Tipo:</strong>
-                    {{ $type->calc_type }}
-                </p>
-
-                @if ($type->calc_key)
-                    <p class="mt-2">
-                        <strong>Calc Key:</strong>
-                        {{ $type->calc_key }}
-                    </p>
-                @endif
-
-                <p class="mt-2">
-                    <strong>Status:</strong>
-
-                    @if ($type->is_active)
-                        <span class="text-green-600">
-                            Ativo
-                        </span>
-                    @else
-                        <span class="text-red-600">
-                            Inativo
-                        </span>
-                    @endif
-                </p>
-
+                    <h3 class="text-2xl font-bold mt-2">
+                        @if($type->is_active)
+                            <span class="text-green-500">Ativo</span>
+                        @else
+                            <span class="text-red-500">Inativo</span>
+                        @endif
+                    </h3>
+                </x-section-card>
             </div>
 
+            <x-section-card>
+                <h3 class="text-lg font-semibold dark:text-gray-100 mb-4">Descrição do teste</h3>
+
+                @if($type->description)
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">{{ $type->description }}</p>
+                @else
+                    <p class="text-gray-400">Nenhuma descrição cadastrada.</p>
+                @endif
+            </x-section-card>
+
+            <x-section-card>
+                <h3 class="text-lg font-semibold dark:text-gray-100 mb-4">Demonstração</h3>
+
+                @if($type->video_url)
+                    <iframe
+                        src="{{ $type->video_url }}"
+                        class="w-full rounded-lg"
+                        style="height: 600px;"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                @else
+                    <p class="text-gray-400">Nenhum vídeo cadastrado.</p>
+                @endif
+            </x-section-card>
         </div>
+
     </div>
 </x-app-layout>

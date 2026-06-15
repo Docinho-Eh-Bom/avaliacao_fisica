@@ -1,11 +1,16 @@
 <x-section-card>
     <div class="flex items-center justify-between mb-6">
-
         <h3 class="text-lg font-semibold dark:text-gray-100">Histórico de baterias</h3>
-
-        <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'create-battery')">Nova bateria</x-secondary-button>
-
-        <x-modal name="create-battery" focusable>
+        <div class="flex items-end gap-3">
+        <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'create-battery')">Nova bateria</x-primary-button>
+        <a href="{{ route('comparison.show', $student) }}">
+            <x-primary-button>Comparar Baterias</x-primary-button>
+        </a>
+        <a href="{{ route('students.history', $student) }}">
+            <x-primary-button>Gráficos do Histórico</x-primary-button>
+        </a>
+        </div>
+        <x-modal name="create-battery" focusable :show="$errors->any()">
             <form method="POST" action="{{ route('students.batteries.store', $student) }}" class="p-6 space-y-6">
                 @csrf
                 <div>
@@ -51,6 +56,12 @@
                             <a href="{{ route('batteries.show', $battery) }}">
                                 <x-secondary-button>Ver</x-secondary-button>
                             </a>
+                            <form method="POST" action="{{ route('batteries.destroy', $battery) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <x-danger-button>Excluir Bateria</x-danger-button>
+                            </form>
                         </td>
                     </tr>
 

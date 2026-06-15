@@ -36,6 +36,9 @@ class ClassGroupController extends Controller
             'description' => "nullable|string",
             'students' => 'nullable|array',
             'students.*' => 'exists:students,id'
+        ],
+        [
+            'name.required' => 'O nome da turma é obrigatório.'
         ]);
 
         $data['user_id'] = Auth::id();
@@ -48,7 +51,7 @@ class ClassGroupController extends Controller
                 ]);
         }
 
-        return redirect()->route('classes.index');
+        return redirect()->route('classes.index')->with('success', 'Turma criada com sucesso!');
     }
 
     public function edit(ClassGroup $classGroup){
@@ -74,11 +77,14 @@ class ClassGroupController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'description' => "nullable|"
+        ],
+        [
+            'name.required' => 'O nome da turma é obrigatório.'
         ]);
 
         $classGroup->update($data);
 
-        return redirect()->route(('classes.index'));
+        return redirect()->route(('classes.index'))->with('success', 'Dados da turma atualizados com sucesso!');
     }
 
     public function updateStudents(Request $request, ClassGroup $classGroup){
@@ -116,6 +122,6 @@ class ClassGroupController extends Controller
     public function destroy(ClassGroup $classGroup){
         $classGroup->delete();
 
-        return back();
+        return back()->with('success', 'Turma deletada com sucesso!');
     }
 }

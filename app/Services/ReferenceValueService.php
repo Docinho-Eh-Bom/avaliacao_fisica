@@ -10,10 +10,10 @@ class ReferenceValueService{
             ->where('age_min', '<=', $age)
             ->where('age_max', '>=', $age)
             ->where('gender', $gender)
-            ->first();
+            ->get();
     }
 
-    //search by percentil | absolute
+/*     //search by percentil | absolute
     public function getReferencyByType($testTypeId, $age, $gender, $type){
         return ReferenceValue::where('test_type_id', $testTypeId)
             ->where('age_min', '<=', $age)
@@ -21,7 +21,7 @@ class ReferenceValueService{
             ->where('gender', $gender)
             ->where('type', $type)
             ->first();
-    }
+    } */
 
     //all ref by type
     public function getByTestTypes($testTypeId){
@@ -30,22 +30,32 @@ class ReferenceValueService{
 
     //create for custom ref
     public function create(array $data){
-        if($data['type'] === 'percentile'){
-            $data['min_value'] = null;
-            $data['max_value'] = null;
-            $data['label'] = null;
-        }
-
-        if($data['type'] === 'absolute'){
-            $data['p0'] = null;
-            $data['p40'] = null;
-            $data['p60'] = null;
-            $data['p80'] = null;
-            $data['p98'] = null;
-        }
-
         return ReferenceValue::create($data);
     }
+
+    //find classification for the age gaps
+    public function findClassification($testTypeId,$age,$gender,$value){
+        return ReferenceValue::where('test_type_id', $testTypeId)
+            ->where('age_min', '<=', $age)
+            ->where('age_max', '>=', $age)
+            ->where('gender', $gender)
+            ->where('type', 'absolute')
+            ->where('min_value', '<=', $value)
+            ->where('max_value', '>=', $value)
+            ->first();
+    }
+
+        public function findClassificationDerived($testTypeId,$age,$gender,$value){
+        return ReferenceValue::where('test_type_id', $testTypeId)
+            ->where('age_min', '<=', $age)
+            ->where('age_max', '>=', $age)
+            ->where('gender', $gender)
+            ->where('type', 'derived')
+            ->where('min_value', '<=', $value)
+            ->where('max_value', '>=', $value)
+            ->first();
+    }
+
 
     //remove ref
     public function delete(ReferenceValue $reference){

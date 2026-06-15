@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-
             <x-page-title>
                 Criar Bateria
             </x-page-title>
@@ -17,9 +16,7 @@
 
     <div class="py-6">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-
             <x-section-card>
-
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold dark:text-gray-100">
                         {{ $student->name }}
@@ -30,13 +27,8 @@
                     </p>
                 </div>
 
-                <form
-                    action="{{ route('students.batteries.store', $student) }}"
-                    method="POST"
-                    class="space-y-6"
-                >
+                <form action="{{ route('students.batteries.store', $student) }}" method="POST" class="space-y-6">
                     @csrf
-
                     <div>
                         <x-input-label
                             for="year"
@@ -65,9 +57,7 @@
                             Criar bateria
                         </x-primary-button>
                     </div>
-
                 </form>
-
             </x-section-card>
         </div>
     </div>

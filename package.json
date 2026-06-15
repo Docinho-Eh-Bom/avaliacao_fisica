@@ -8,7 +8,8 @@
         "serve": "php artisan serve",
         "tinker": "php artisan tinker",
         "migrate": "php artisan migrate:fresh",
-        "seed": "php artisan db:seed"
+        "seed": "php artisan db:seed",
+        "refresh": "php artisan migrate:fresh --seed"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -24,6 +25,7 @@
     },
     "dependencies": {
         "@tailwindcss/forms": "^0.5.11",
-        "chart.js": "^4.5.1"
+        "chart.js": "^4.5.1",
+        "chartjs-plugin-datalabels": "^2.2.0"
     }
 }

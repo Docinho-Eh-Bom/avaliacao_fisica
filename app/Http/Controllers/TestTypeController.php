@@ -21,8 +21,12 @@ class TestTypeController extends Controller
         return view('test-types.index', compact('types'));
     }
 
-    public function create(){
+/*     public function create(){
         return view('test-types.create');
+    } */
+
+    public function show(TestType $testType){
+        return view('test-types.show', ['type' => $testType]);
     }
 
     public function store(Request $request){
@@ -30,7 +34,9 @@ class TestTypeController extends Controller
             'name' => 'required|string',
             'unit'=> 'required|string',
             'calc_type' => 'required|in:direct,derived',
-            'calc_key'=> 'nullable|string'
+            'calc_key'=> 'nullable|string',
+            'description' => 'nullable|string',
+            'video_url' => 'nullable|string'
         ]);
 
         //if calc type derived = they need a specific calc to get the result
@@ -48,7 +54,9 @@ class TestTypeController extends Controller
             'name' => 'required|string',
             'unit'=> 'required|string',
             'calc_type' => 'required|in:direct,derived',
-            'calc_key'=> 'nullable|string'
+            'calc_key'=> 'nullable|string',
+            'description' => 'nullable|string',
+            'video_url' => 'nullable|string'
         ]);
 
         if($data['calc_type'] === 'derived' && empty($data['calc_key'])){
@@ -60,7 +68,7 @@ class TestTypeController extends Controller
         return redirect()->route('test-types.index');
     }
 
-    public function destroy(TestType $testType){
+/*     public function destroy(TestType $testType){
         $this->service->deactivate($testType);
 
         return back();
@@ -70,5 +78,5 @@ class TestTypeController extends Controller
         $this->service->activate($testType);
 
         return back();
-    }
+    } */
 }

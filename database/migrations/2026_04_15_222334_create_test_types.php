@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('unit');//repetições, segundos, metros, etc
             $table->enum('calc_type', ['direct', 'derived']);//direto | derivado
             $table->string('calc_key')->nullable();//nome calc (bmi, imc, vo2 etc)
+            $table->boolean('higher')->default(true);//para classificao entre alunos
             $table->boolean('is_active')->default(true);//para o delete, vai ser so um switch de true/false
+            $table->text('description')->nullable();
+            $table->string('video_url')->nullable();
             $table->timestamps();
         });
     }

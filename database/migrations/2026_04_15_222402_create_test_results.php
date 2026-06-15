@@ -22,8 +22,14 @@ return new class extends Migration
                     ->constrained()
                     ->cascadeOnDelete();
 
-            $table->float('value')->nullable();
+            $table->unique([
+                'battery_id',
+                'test_type_id'
+            ]);
 
+            $table->float('value')->nullable();
+            $table->string('classification')->nullable();
+            $table->float('final_value')->nullable();
             $table->timestamps();
         });
     }

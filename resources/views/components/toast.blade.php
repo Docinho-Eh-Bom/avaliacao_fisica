@@ -1,7 +1,7 @@
 @props(['type' => 'success', 'message'])
 
 @php
-$styles = match($type) {
+$styles = match($type){
     'success' => 'bg-green-100 dark:bg-green-800 border-green-500 text-green-800 dark:text-green-100',
     'error' => 'bg-red-100 dark:bg-red-800 border-red-500 text-red-800 dark:text-red-100',
     'warning' => 'bg-yellow-100 dark:bg-yellow-700 border-yellow-500 text-yellow-800 dark:text-yellow-100',

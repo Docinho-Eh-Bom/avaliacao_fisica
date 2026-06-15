@@ -17,7 +17,10 @@ class MetricService{
         $height = $data['height'] ?? null;
 
         if(!$weight || !$height){
-            return throw new \Exception("Missing data for BMI");
+            return back()->with(
+            'error',
+            'Faltando dados'
+        );
         }
 
         //height in m
@@ -32,7 +35,10 @@ class MetricService{
         $height = $data['height'] ?? null;
 
         if(!$waist || !$height){
-            return throw new \Exception("Missing data for WTR");
+                        return back()->with(
+            'error',
+            'Faltando dados'
+        );
         }
 
         return round($waist/$height, 2);

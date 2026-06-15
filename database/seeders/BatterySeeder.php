@@ -20,7 +20,7 @@ class BatterySeeder extends Seeder
         foreach($students as $student){
             TestBattery::create([
                 'student_id' => $student->id,
-                'year' => 2023
+                'year' => 2026
             ]);
         }
     }

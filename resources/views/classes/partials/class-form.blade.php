@@ -1,5 +1,4 @@
 <section>
-    x-he
     <header class="flex flex-row justify-between">
         <x-page-title>
             {{ $formTitle }}

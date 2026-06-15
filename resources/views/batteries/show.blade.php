@@ -1,12 +1,20 @@
-<x-app-layout>
+    <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-
             <x-page-title>Bateria {{ $battery->year }}</x-page-title>
 
-            <a href="{{ route('students.show', $battery->student) }}">
-                <x-secondary-button>Voltar ao aluno</x-secondary-button>
-            </a>
+            <div class="flex gap-2">
+                <form method="POST" action="{{ route('batteries.destroy', $battery) }}">
+                    @csrf
+                    @method('DELETE')
+
+                    <x-danger-button>Excluir Bateria</x-danger-button>
+                </form>
+
+                <a href="{{ route('students.show', $battery->student) }}">
+                    <x-secondary-button style="margin-bottom: 0px;" >Voltar ao aluno</x-secondary-button>
+                </a>
+            </div>
         </div>
     </x-slot>
 
@@ -28,10 +36,34 @@
                     <a href="{{ route('batteries.results.create', $battery) }}">
                         <x-primary-button>Adicionar resultado</x-primary-button>
                     </a>
+                    <a href="{{ route('reports.show', $battery) }}">
+                        <x-primary-button>Relatório</x-primary-button>
+                    </a>
+
+                    <a href="{{ route('comparison.show', $battery->student) }}">
+                        <x-primary-button>Comparar</x-primary-button>
+                    </a>
                 </div>
 
-                <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
+<!--                 <div class="flex gap-2 mb-4">
+                    <a href="{{ request()->fullUrlWithQuery(['classification' => 'general']) }}"
+                    class="px-4 py-2 rounded-lg text-sm
+                    {{ $classificationMode === 'general'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-200 dark:bg-gray-700 dark:text-white' }}">
+                        Classificação Geral
+                    </a>
 
+                    <a href="{{ request()->fullUrlWithQuery(['classification' => 'class']) }}"
+                    class="px-4 py-2 rounded-lg text-sm
+                    {{ $classificationMode === 'class'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-200 dark:bg-gray-700 dark:text-white' }}">
+                        Classificação entre a Turma
+                    </a>
+                </div> -->
+
+                <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead class="bg-gray-50 dark:bg-gray-700">
                             <tr>
@@ -47,25 +79,25 @@
                             @forelse($battery->results as $result)
                                 <tr>
                                     <td class="px-6 py-4 dark:text-gray-100">{{ $result->testType->name }}</td>
-                                    <td class="px-6 py-4 dark:text-gray-300">{{ $result->value }}</td>
+                                    <td class="px-6 py-4 dark:text-gray-300">{{ $result->final_value ?? $result->value }}</td>
                                     <td class="px-6 py-4 dark:text-gray-300">{{ $result->testType->unit ?? '-' }}</td>
 
                                     <td class="px-6 py-4">
-                                        @php
-                                            $evaluation = $evaluations[$result->id] ?? null;
-                                        @endphp
+                                        @if($result->classification)
 
-                                        @if($evaluation && $evaluation['classification'])
-                                            <span class="px-3 py-1 rounded-full text-sm bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">
-                                                {{ $evaluation['classification'] }}
-                                            </span>
+                                            <span class="
+                                                px-3 py-1 rounded-full text-sm font-medium
+                                                {{ $colors[$result->classification_label] ??  'text-gray-300' }}
+                                            ">{{ str_replace('_', ' ', ucfirst($result->classification_label)) }}</span>
+
                                         @else
                                             <span class="text-gray-400">Não avaliado</span>
                                         @endif
                                     </td>
-
                                     <td class="px-6 py-4">
                                         <div class="flex justify-end gap-2">
+                                            @include('batteries.partials.result-edit')
+
                                             <form method="POST" action="{{ route('results.destroy', $result) }}">
                                                 @csrf
                                                 @method('DELETE')

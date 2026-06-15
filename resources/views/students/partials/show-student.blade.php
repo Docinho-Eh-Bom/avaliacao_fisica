@@ -1,5 +1,5 @@
-<div class="bg-white dark:bg-gray-800 shadow sm:rounded-lg overflow-hidden mt-3">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<div class="flex flex-wrap bg-white dark:bg-gray-800 shadow sm:rounded-lg overflow-y-auto mt-3" style="height: 750px">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
         <thead class="bg-gray-50 dark:bg-gray-700">
             <tr>
                 <th class="px-6 py-3 text-left dark:text-gray-200">Nome</th>

@@ -1,8 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ $student->name }}
-        </h2>
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ $student->name }}
+            </h2>
+
+            <a href="{{ route('students.show', $student) }}">
+                <x-secondary-button style="margin-bottom: 0px;" >Voltar ao aluno</x-secondary-button>
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-12">

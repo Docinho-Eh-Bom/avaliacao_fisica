@@ -21,6 +21,12 @@ class TestTypeService{
             ->get();
     }
 
+    public function getAllDirect(){
+        return TestType::where('is_active', true)
+            ->where('calc_type', 'direct')
+            ->get();
+    }
+
     //calc direct
     public function getDirect(){
         return TestType::where('calc_type', 'direct')

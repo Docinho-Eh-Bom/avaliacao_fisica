@@ -5,44 +5,26 @@ use App\Models\ClassGroup;
 use App\Models\TestBattery;
 use App\Models\TestType;
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassGroupController;
 use App\Http\Controllers\TestTypeController;
 use App\Http\Controllers\TestBatteryController;
+use App\Http\Controllers\ComparisonController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\TestResultController;
+use App\Http\Controllers\ReportController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function (){
-    return view('welcome');
+    return view('auth.login');
 });
 
 //dashboard
-Route::get('/dashboard', function (){
-
-    $studentCount = Student::where('user_id', Auth::id())->count();
-
-    $classCount = ClassGroup::where('user_id', Auth::id())->count();
-
-    $batteryCount = TestBattery::where('user_id', Auth::id())->count();
-
-    $testCount = TestType::where('user_id', Auth::id())->count();
-
-    $studentsWithoutClass = Student::where('user_id', Auth::id())
-        ->whereNull('class_group_id')
-        ->get();
-
-    return view('dashboard', compact(
-        'studentCount',
-        'classCount',
-        'batteryCount',
-        'testCount',
-        'studentsWithoutClass'
-    ));
-
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
 
 Route::middleware('auth')->group(function (){
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,7 +38,7 @@ Route::middleware(['auth'])->group(function (){
 
     //classes
     Route::resource('classes', ClassGroupController::class)->parameters(['classes' => 'classGroup']);
-    Route::put('/classes/{classGroup}/students',[ClassGroupController::class, 'updateStudents'])->name('classes.students.update');
+    Route::put('/classes/{classGroup}/students', [ClassGroupController::class, 'updateStudents'])->name('classes.students.update');
 
     //test types
     Route::resource('test-types', TestTypeController::class);
@@ -67,9 +49,20 @@ Route::middleware(['auth'])->group(function (){
     //batteries in student
     Route::resource('students.batteries', TestBatteryController::class)->shallow();
 
+    //battery comparison
+    Route::get('/students/{student}/comparison', [ComparisonController::class, 'show'])->name('comparison.show');
+
     //results in battery
     Route::resource('batteries.results', TestResultController::class)->shallow();
-});
 
+    //all results(history)
+    Route::get('/students/{student}/history', [HistoryController::class, 'show'])->name('students.history');
+
+    //report view
+    Route::get('/batteries/{battery}/report', [ReportController::class, 'show'])->name('reports.show');
+
+    //export pdf
+    Route::post('/reports/{battery}/pdf', [ReportController::class, 'exportPdf'])->name('reports.pdf');
+});
 
 require __DIR__.'/auth.php';

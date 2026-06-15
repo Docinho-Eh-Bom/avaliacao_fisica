@@ -1,8 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <x-page-title>
-            {{ $classGroup->name }}
-    </x-page-title>
+        <div class="flex items-center justify-between">
+            <x-page-title>{{ $classGroup->name }}</x-page-title>
+
+            <div class="flex gap-2">
+                <a href="{{ route('classes.show', $classGroup) }}">
+                    <x-primary-button>Voltar</x-primary-button>
+                </a>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">

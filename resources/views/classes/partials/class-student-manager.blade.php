@@ -6,8 +6,6 @@
         @include('classes.partials.student-modal')
     </header>
 
-
-
     <form method="POST" action="{{ route('classes.students.update', $classGroup) }}" class="mt-6 space-y-4">
         @csrf
         @method('PUT')
@@ -22,7 +20,7 @@
 
                 <div>
                     <x-select-input name="students[{{ $student->id }}]">
-                        <option value="">Sem turma</option>
+                        <option value="">Remover da Turma</option>
                         @foreach($classes as $class)
                             <option
                                 value="{{ $class->id }}"
