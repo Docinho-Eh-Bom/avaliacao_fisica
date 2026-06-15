@@ -1,10 +1,7 @@
 import './bootstrap';
 import {Chart} from 'chart.js/auto';
-import { BrowserRouter } from "react-router-dom";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import Alpine from 'alpinejs';
-
-<BrowserRouter basename="/apollon"></BrowserRouter>
 
 window.Alpine = Alpine;
 
