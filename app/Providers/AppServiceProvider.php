@@ -13,18 +13,26 @@ use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        Student::class => StudentPolicy::class,
-        TestBattery::class => TestBatteryPolicy::class,
-        TestResult::class => TestResultPolicy::class
-    ];
-
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
 
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+/*     public function boot(): void
     {
-        //
-    }
+        URL::forceScheme('https');
+
+        URL::forceRootUrl(config('app.url'));
+
+        if (config('app.asset_url')) {
+            URL::forceRootUrl(config('app.asset_url'));
+        }
+    } */
 }
+
